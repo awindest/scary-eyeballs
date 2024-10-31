@@ -11,7 +11,6 @@ Yet another science experiment from Indest Labs.
 Recommend viewing in Visual Source Code.
 -->
 <script>
-
 	import { fade, fly } from 'svelte/transition';
 	import { onMount } from 'svelte';
 	let animateLabsLogo = false;
@@ -19,21 +18,23 @@ Recommend viewing in Visual Source Code.
 	onMount(() => {
 		animateLabsLogo = true;
 	});
-
 </script>
 
 {#if animateLabsLogo}
 	<div transition:fly={{ y: 10, delay: 1000, duration: 2500 }} id="labs">
-		Indest Labs
-		<img
-			style="float:right;height:2.5em;filter:contrast(75%);"
-			src="flask.svg"
-			alt="Laboratory Flask"
-		/>
-
+		<a
+			href="https://github.com/awindest/scary-eyeballs"
+			title="Click to see the source code on github."
+		>
+			Indest Labs
+			<img
+				style="float:right;height:2.5em;filter:contrast(75%);"
+				src="flask.svg"
+				alt="Laboratory Flask"
+			/>
+		</a>
 	</div>
 {/if}
-
 
 <style>
 	/* author's stamp */
@@ -47,7 +48,51 @@ Recommend viewing in Visual Source Code.
 		color: #042e64;
 		font-size: 9px;
 		font-family: sans-serif;
-		text-shadow: -1px -1px 2px #fff, -1px 1px 2px #fff, 1px -1px 2px #fff, 1px 1px 2px #fff;
+		text-shadow:
+			-1px -1px 2px #fff,
+			-1px 1px 2px #fff,
+			1px -1px 2px #fff,
+			1px 1px 2px #fff;
 	}
+	a:hover {
+		text-shadow: 0 0 5px #ff0000;
+		color: white;
+	}
+	a:before {
+		content: '';
+		/* background: linear-gradient(-90deg, #007cf0, #00dfd8, #ff0080, #007cf0); */
+		background: rgba(238, 14, 96, 0.75);
+		position: absolute;
+		top: -2px;
+		left: -2px;
+		-webkit-background-size: 400%;
+		background-size: 400%;
+		z-index: -1;
+		filter: blur(5px);
+		width: calc(100% + 4px);
+		height: calc(100% + 4px);
+		/* animation: animate 20s linear infinite; */
+		/* animation: gradient-background-anim 8s ease-in-out infinite; */
 
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+	/* get rid of the hyperlink underline for all states */
+	a:hover:before {
+		opacity: 1;
+		color: white;
+		/* outline: 3px solid blue; */
+	}
+	a:link {
+		text-decoration: none;
+	}
+	a:visited {
+		text-decoration: none;
+	}
+	a:hover {
+		text-decoration: none;
+	}
+	a:active {
+		text-decoration: none;
+	}
 </style>
