@@ -8,35 +8,58 @@ Title: Human skull FREE
 -->
 
 <script>
-  import { Group } from 'three'
-  import { T, forwardEventHandlers } from '@threlte/core'
-  import { useGltf } from '@threlte/extras'
+	//
+	// ╭━━╮╱╱╱╱╭╮╱╱╱╱╱╭╮╱╭╮╱╱╱╱╱╭╮            ━╮ ╭━
+	// ╰┫┣╯╱╱╱╱┃┃╱╱╱╱╭╯╰╮┃┃╱╱╱╱╱┃┃             | |
+	// ╱┃┃╭━╮╭━╯┣━━┳━┻╮╭╯┃┃╱╱╭━━┫╰━┳━━╮       ╱ o \
+	// ╱┃┃┃╭╮┫╭╮┃┃━┫━━┫┃╱┃┃╱╭┫╭╮┃╭╮┃━━┫      ╱_____\
+	// ╭┫┣┫┃┃┃╰╯┃┃━╋━━┃╰╮┃╰━╯┃╭╮┃╰╯┣━━┃     ╱    o  \
+	// ╰━━┻╯╰┻━━┻━━┻━━┻━╯╰━━━┻╯╰┻━━┻━━╯    (__o______)
 
-  export const ref = new Group()
+	// Yet another science experiment from Indest Labs.
 
-  const gltf = useGltf('/human_skull.glb')
+	// Recommend viewing in Visual Source Code.
+	//
+	import { Group } from 'three'
+	import { T, forwardEventHandlers } from '@threlte/core'
+	import { useGltf } from '@threlte/extras'
 
-  const component = forwardEventHandlers()
+	export const ref = new Group()
+
+	const gltf = useGltf('/human_skull.glb')
+
+	const component = forwardEventHandlers()
 </script>
 
 <T is={ref} dispose={false} {...$$restProps} bind:this={$component}>
-  {#await gltf}
-    <slot name="fallback" />
-  {:then gltf}
-  <!-- [-0.85, -0.14, 0] -->
-    <!-- <T.Group position={[0, 0, 0]} rotation={[Math.PI / 2, 0, -Math.PI]} scale={1.2}> -->
-      <!-- <T.Group position={[-1.96, -6.59, -1.59]}> rotation={[Math.PI / 2, 0, -Math.PI]}-->
-      <T.Group position={[0, 0, 0]}  rotation={[Math.PI / 2, 0, -Math.PI]} scale= {1.3}>
-        <T.Mesh geometry={gltf.nodes.Object_3.geometry} material={gltf.materials.SKULLhighCLEANEDdefaultMat} />
-        <T.Mesh geometry={gltf.nodes.Object_4.geometry} material={gltf.materials.SKULLhighCLEANEDdefaultMat} />
-        <T.Mesh geometry={gltf.nodes.Object_5.geometry} material={gltf.materials.SKULLhighCLEANEDdefaultMat} />
-        <T.Mesh geometry={gltf.nodes.Object_6.geometry} material={gltf.materials.SKULLhighCLEANEDdefaultMat} />
-        <T.Mesh geometry={gltf.nodes.Object_7.geometry} material={gltf.materials.SKULLhighCLEANEDdefaultMat} />
-      </T.Group>
-    <!-- </T.Group> -->
-  {:catch error}
-    <slot name="error" {error} />
-  {/await}
+	{#await gltf}
+		<slot name="fallback" />
+	{:then gltf}
+		<T.Group position={[0, 0, 0]} rotation={[Math.PI / 2, 0, -Math.PI]} scale={1.3}>
+			<T.Mesh
+				geometry={gltf.nodes.Object_3.geometry}
+				material={gltf.materials.SKULLhighCLEANEDdefaultMat}
+			/>
+			<T.Mesh
+				geometry={gltf.nodes.Object_4.geometry}
+				material={gltf.materials.SKULLhighCLEANEDdefaultMat}
+			/>
+			<T.Mesh
+				geometry={gltf.nodes.Object_5.geometry}
+				material={gltf.materials.SKULLhighCLEANEDdefaultMat}
+			/>
+			<T.Mesh
+				geometry={gltf.nodes.Object_6.geometry}
+				material={gltf.materials.SKULLhighCLEANEDdefaultMat}
+			/>
+			<T.Mesh
+				geometry={gltf.nodes.Object_7.geometry}
+				material={gltf.materials.SKULLhighCLEANEDdefaultMat}
+			/>
+		</T.Group>
+	{:catch error}
+		<slot name="error" {error} />
+	{/await}
 
-  <slot {ref} />
+	<slot {ref} />
 </T>

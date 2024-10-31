@@ -1,37 +1,37 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	let fugue: HTMLAudioElement;
-	let isPlaying: boolean = false;
-	let buttonText = 'Play Bach Fugue';
+	import { onMount } from 'svelte'
+	let fugue: HTMLAudioElement
+	let isPlaying: boolean = false
+	let buttonText = 'Play Bach Fugue'
 	onMount(() => {
-		loadFugue();
-	});
+		loadFugue()
+	})
 
 	function onToggle() {
-		isPlaying = !isPlaying;
+		isPlaying = !isPlaying
 		// console.log(isPlaying)
 		if (!fugue) {
-			loadFugue();
+			loadFugue()
 		}
 		if (isPlaying) {
-			playFugue();
+			playFugue()
 			fugue.onended = () => {
-				buttonText = 'Play Bach Fugue';
-				isPlaying = !isPlaying;
-			};
+				buttonText = 'Play Bach Fugue'
+				isPlaying = !isPlaying
+			}
 		} else {
-			pauseFugue();
+			pauseFugue()
 		}
-		buttonText = isPlaying ? 'Pause Bach Fugue' : 'Play Bach Fugue';
+		buttonText = isPlaying ? 'Pause Bach Fugue' : 'Play Bach Fugue'
 	}
 	function loadFugue() {
-		fugue = new Audio('/bach-toccata-and-fugue-in-d-minor.m4a');
+		fugue = new Audio('/bach-toccata-and-fugue-in-d-minor.m4a')
 	}
 	function playFugue() {
-		fugue.play();
+		fugue.play()
 	}
 	function pauseFugue() {
-		fugue.pause();
+		fugue.pause()
 	}
 
 	// loadFugue()

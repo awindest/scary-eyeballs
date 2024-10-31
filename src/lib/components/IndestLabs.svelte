@@ -1,23 +1,23 @@
-<!--                                  
-╭━━╮╱╱╱╱╭╮╱╱╱╱╱╭╮╱╭╮╱╱╱╱╱╭╮            ━╮ ╭━
-╰┫┣╯╱╱╱╱┃┃╱╱╱╱╭╯╰╮┃┃╱╱╱╱╱┃┃             | |
-╱┃┃╭━╮╭━╯┣━━┳━┻╮╭╯┃┃╱╱╭━━┫╰━┳━━╮       ╱ o \
-╱┃┃┃╭╮┫╭╮┃┃━┫━━┫┃╱┃┃╱╭┫╭╮┃╭╮┃━━┫      ╱_____\
-╭┫┣┫┃┃┃╰╯┃┃━╋━━┃╰╮┃╰━╯┃╭╮┃╰╯┣━━┃     ╱    o  \  
-╰━━┻╯╰┻━━┻━━┻━━┻━╯╰━━━┻╯╰┻━━┻━━╯    (__o______)  
-
-Yet another science experiment from Indest Labs.
-
-Recommend viewing in Visual Source Code.
--->
 <script>
-	import { fade, fly } from 'svelte/transition';
-	import { onMount } from 'svelte';
-	let animateLabsLogo = false;
+	//
+	// ╭━━╮╱╱╱╱╭╮╱╱╱╱╱╭╮╱╭╮╱╱╱╱╱╭╮            ━╮ ╭━
+	// ╰┫┣╯╱╱╱╱┃┃╱╱╱╱╭╯╰╮┃┃╱╱╱╱╱┃┃             | |
+	// ╱┃┃╭━╮╭━╯┣━━┳━┻╮╭╯┃┃╱╱╭━━┫╰━┳━━╮       ╱ o \
+	// ╱┃┃┃╭╮┫╭╮┃┃━┫━━┫┃╱┃┃╱╭┫╭╮┃╭╮┃━━┫      ╱_____\
+	// ╭┫┣┫┃┃┃╰╯┃┃━╋━━┃╰╮┃╰━╯┃╭╮┃╰╯┣━━┃     ╱    o  \
+	// ╰━━┻╯╰┻━━┻━━┻━━┻━╯╰━━━┻╯╰┻━━┻━━╯    (__o______)
+
+	// Yet another science experiment from Indest Labs.
+
+	// Recommend viewing in Visual Source Code.
+	//
+	import { fade, fly } from 'svelte/transition'
+	import { onMount } from 'svelte'
+	let animateLabsLogo = false
 
 	onMount(() => {
-		animateLabsLogo = true;
-	});
+		animateLabsLogo = true
+	})
 </script>
 
 {#if animateLabsLogo}
