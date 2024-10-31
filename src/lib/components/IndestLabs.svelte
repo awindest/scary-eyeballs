@@ -60,7 +60,6 @@ Recommend viewing in Visual Source Code.
 	}
 	a:before {
 		content: '';
-		/* background: linear-gradient(-90deg, #007cf0, #00dfd8, #ff0080, #007cf0); */
 		background: rgba(238, 14, 96, 0.75);
 		position: absolute;
 		top: -2px;
@@ -71,17 +70,13 @@ Recommend viewing in Visual Source Code.
 		filter: blur(5px);
 		width: calc(100% + 4px);
 		height: calc(100% + 4px);
-		/* animation: animate 20s linear infinite; */
-		/* animation: gradient-background-anim 8s ease-in-out infinite; */
-
 		opacity: 0;
-		transition: opacity 0.3s ease;
+		transition: opacity 0.5s ease;
 	}
 	/* get rid of the hyperlink underline for all states */
 	a:hover:before {
-		opacity: 1;
+		opacity: 0.75;
 		color: white;
-		/* outline: 3px solid blue; */
 	}
 	a:link {
 		text-decoration: none;
