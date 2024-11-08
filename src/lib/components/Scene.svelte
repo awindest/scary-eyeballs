@@ -20,7 +20,7 @@
 	import { onMount } from 'svelte'
 
 	import Eye from '$components/Eye.svelte'
-	import HumanSkull from './human_skull.svelte'
+	import Skull from './Skull.svelte'
 
 	let leftEye: any
 	let rightEye: any
@@ -34,13 +34,13 @@
 
 		let planeNormal = new THREE.Vector3()
 		let planePoint = new THREE.Vector3()
-		const pointer = new Vector2() // mouse or finger?
+		const pointer = new Vector2() // mouse or finger? Not liking how it works on iPhone
 		const raycaster = new Raycaster()
 		const lookAt = new THREE.Vector3(1.0, 1.45, 3.5)
 
 		window.addEventListener('pointermove', onPointerMove)
 
-		// //A function to be called every time the mouse/pointer moves
+		// a function to be called every time the mouse/pointer moves
 		function onPointerMove(event: any) {
 			// normalize space to -1, -1 -> 1, 1 square
 
@@ -50,7 +50,7 @@
 			raycaster.setFromCamera(pointer, $camera)
 
 			$camera.getWorldDirection(planeNormal)
-			planePoint.copy(planeNormal).setLength(6).add($camera.position)
+			planePoint.copy(planeNormal).setLength(6).add($camera.position) // its always 6...6, why 6?
 			plane.setFromNormalAndCoplanarPoint(planeNormal, planePoint)
 
 			raycaster.ray.intersectPlane(plane, lookAt)
@@ -65,7 +65,8 @@
 
 // spoookiness
 <Float rotationIntensity={0.75} rotationSpeed={3}>
-	// camera
+	// camera // Need to go back to algebra class and stay awake this time
+
 	<T.PerspectiveCamera makeDefault position={[3, 5, 8]} fov={45}>
 		<OrbitControls
 			enableZoom={false}
@@ -79,17 +80,17 @@
 	</T.PerspectiveCamera>
 </Float>
 
-// light
+// light, just a hint of moonlight off of the skull from the upper left
 <T.DirectionalLight intensity={0.8} position.x={-15} position.y={30} />
 
 <T.AmbientLight intensity={0.2} />
 
 // wait for it
 {#await textures then texture}
-	// eyes
+	// skull & eyes
 	<T.Group>
+		<Skull />
 		<Eye bind:reference={leftEye} {texture} position={[-1.86, -1.7, -0.7]} />
 		<Eye bind:reference={rightEye} {texture} position={[-0.65, -1.65, -1.4]} />
-		<HumanSkull />
 	</T.Group>
 {/await}
