@@ -13,6 +13,6 @@ Play some spoooky music by clicking the red button.
 ## Pleasant dreams!
 
 
-Here is a screenshot
+Here is a screamshot
 
 ![Image](https://github.com/user-attachments/assets/bf53031d-aca2-43f4-9828-d3ea0b6ea5d7)
