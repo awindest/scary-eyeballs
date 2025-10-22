@@ -1,38 +1,18 @@
-# create-svelte
+# Scary Eyeballs
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Here's a nice scary project using Threlte.
 
-## Creating a project
+Demo is [here](https://scary-eyeballs.vercel.app/)
 
-If you're seeing this, you've probably already done this step. Congrats!
+Move the skeletal cursor around and the eyes will follow you.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+Click and drag to rotate the skull.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+Play some spoooky music by clicking the red button.
 
-## Developing
+## Pleasant dreams!
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-```bash
-npm run dev
+Here is a screenshot
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+![Image](https://github.com/user-attachments/assets/bf53031d-aca2-43f4-9828-d3ea0b6ea5d7)
